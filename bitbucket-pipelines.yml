@@ -1,10 +1,10 @@
 pipelines:
   default:
     - step:
-        - name: Test version file not changed
-        - script:
-            - apt-get update && apt-get install -y git
-            - git diff --exit-code VERSION
+        name: Test version file not changed
+        script:
+          - apt-get update && apt-get install -y git
+          - git diff --exit-code VERSION
 
   custom:
     release-inc-patch:
