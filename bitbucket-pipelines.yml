@@ -13,7 +13,7 @@ pipelines:
       - step:
           caches:
             - pip
-          name: Release current version and increment minor version
+          name: Increment patch version and release version
           script:
             - /scripts/release.sh patch
 
@@ -21,13 +21,13 @@ pipelines:
       - step:
           caches:
             - pip
-          name: Release current version and increment minor version
+          name: Increment minor version and release version
           script:
             - /scripts/release.sh minor
     release-inc-major:
       - step:
           caches:
             - pip
-          name: Release current version and increment major version
+          name: Increment major version and release version
           script:
             - /scripts/release.sh major
