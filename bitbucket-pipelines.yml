@@ -1,9 +1,11 @@
+image:
+  name: alantindale/mybuild:latest
+
 pipelines:
   default:
     - step:
         name: Test version file not changed
         script:
-          - apt-get update && apt-get install -y git
           - git diff --exit-code VERSION
 
   custom:
@@ -13,8 +15,6 @@ pipelines:
             - pip
           name: Release current version and increment minor version
           script:
-            # - apt-get update && apt-get install -y git
-            - pip3 install fire==0.2.1
             - ./scripts/release.sh patch
 
     release-inc-minor:
@@ -23,8 +23,6 @@ pipelines:
             - pip
           name: Release current version and increment minor version
           script:
-            - apt-get update && apt-get install -y python3-pip
-            - pip3 install fire==0.2.1
             - ./scripts/release.sh minor
     release-inc-major:
       - step:
@@ -32,6 +30,4 @@ pipelines:
             - pip
           name: Release current version and increment major version
           script:
-            - apt-get update && apt-get install -y python3-pip
-            - pip install fire==0.2.1
             - ./scripts/release.sh major
