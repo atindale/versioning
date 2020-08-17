@@ -4,9 +4,9 @@ image:
 pipelines:
   default:
     - step:
-        - name: Test version file not changed
-        - script:
-            - git diff --exit-code VERSION
+        name: Test version file not changed
+        script:
+          - git diff --exit-code VERSION
 
   custom:
     release-inc-patch:
